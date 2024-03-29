@@ -96,7 +96,7 @@ app.use(function (req, res, next) {
 
 // MongoDB Atlas URI
 // const mongoURI  = 'mongodb+srv://indusunkari7:ySK8qo9uV5sRmizR@cluster0.vqcl7cx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-const mongoURI = ''mongodb+srv://indusunkari7:X7rVMN0XxisLDP1n@cluster0.qdohzkw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongoURI = 'mongodb+srv://indusunkari7:X7rVMN0XxisLDP1n@cluster0.qdohzkw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 // Connect to MongoDB Atlas with SSL options
 mongoose.connect(mongoURI, {
   // useNewUrlParser: true,
