@@ -24,18 +24,29 @@ const uri ='mongodb+srv://indusunkari7:GdkKldYWY7D2QYz9@cluster0.gqi7igp.mongodb
 
 //Connect to MongoDB
 
-const db = mongoose.connection;
-mongoose.connect('mongodb://127.0.0.1:27017/task', {
+// const db = mongoose.connection;
+// mongoose.connect('mongodb://127.0.0.1:27017/task', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
+
+// db.on('error', console.error.bind(console, 'MongoDB connection error',{ }));
+// db.once('open', () => {
+//     console.log('Connected to MongoDB');
+// });
+
+
+// Connect to MongoDB
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
+})
+.then(() => {
+  console.log('Connected to MongoDB');
+})
+.catch((error) => {
+  console.error('MongoDB connection error:', error);
 });
-
-db.on('error', console.error.bind(console, 'MongoDB connection error',{ }));
-db.once('open', () => {
-    console.log('Connected to MongoDB');
-});
-
-
 
 // mongoose.connect(uri, {   
 //   // useNewUrlParser: true,
