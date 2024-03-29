@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-const mongoURI ='mongodb+srv://indusunkari7:GdkKldYWY7D2QYz9@cluster0.gqi7igp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongoURI ='mongodb+srv://indusunkari7:ySK8qo9uV5sRmizR@cluster0.vqcl7cx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 //Connect to MongoDB
 
