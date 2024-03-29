@@ -37,7 +37,7 @@ const uri ='mongodb+srv://indusunkari7:GdkKldYWY7D2QYz9@cluster0.gqi7igp.mongodb
 
 
 // Connect to MongoDB
-mongoose.connect(mongoURI, {
+mongoose.connect(URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
