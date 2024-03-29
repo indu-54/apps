@@ -32,7 +32,7 @@ db.once('open', () => {
     console.log('Connected to MongoDB');
 });
 
-// const uri ='mongodb+srv://indusunkari7:GdkKldYWY7D2QYz9@cluster0.gqi7igp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const uri ='mongodb+srv://indusunkari7:GdkKldYWY7D2QYz9@cluster0.gqi7igp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 // mongoose.connect(uri, {   
 //   // useNewUrlParser: true,
