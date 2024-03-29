@@ -19,12 +19,15 @@ app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   next();
 });
+
+const uri ='mongodb+srv://indusunkari7:GdkKldYWY7D2QYz9@cluster0.gqi7igp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+
 //Connect to MongoDB
 
 const db = mongoose.connection;
 mongoose.connect('mongodb://127.0.0.1:27017/task', {
-  // useNewUrlParser: true,
-  // useUnifiedTopology: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 db.on('error', console.error.bind(console, 'MongoDB connection error',{ }));
@@ -32,7 +35,7 @@ db.once('open', () => {
     console.log('Connected to MongoDB');
 });
 
-const uri ='mongodb+srv://indusunkari7:GdkKldYWY7D2QYz9@cluster0.gqi7igp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+
 
 // mongoose.connect(uri, {   
 //   // useNewUrlParser: true,
@@ -51,6 +54,10 @@ const uri ='mongodb+srv://indusunkari7:GdkKldYWY7D2QYz9@cluster0.gqi7igp.mongodb
 // Use  routes
 app.use('/api', router);
 
+// Define routes
+app.get('/', (req, res) => {
+  res.send('Hello from Render!');
+});
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
