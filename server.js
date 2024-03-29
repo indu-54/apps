@@ -40,12 +40,12 @@ mongoose.connect(mongoURI, {
   // useNewUrlParser: true,
   // useUnifiedTopology: true
 })
-.then(() => {
-  console.log('Connected to MongoDB');
-})
-.catch((error) => {
-  console.error('MongoDB connection error:', error);
-});
+// .then(() => {
+//   console.log('Connected to MongoDB');
+// })
+// .catch((error) => {
+//   console.error('MongoDB connection error:', error);
+// });
 
 // mongoose.connect(uri, {   
 //   // useNewUrlParser: true,
@@ -53,13 +53,13 @@ mongoose.connect(mongoURI, {
 
   
 //   });
-// const db = mongoose.connection;
-// db.on('error', (error) => {
-//   console.error('Error connecting to MongoDB Atlas with Mongoose:', error);
-// });
-// db.once('open', () => {
-//   console.log('Connected to MongoDB Atlas with Mongoose');
-// });
+const db = mongoose.connection;
+db.on('error', (error) => {
+  console.error('Error connecting to MongoDB Atlas with Mongoose:', error);
+});
+db.once('open', () => {
+  console.log('Connected to MongoDB Atlas with Mongoose');
+});
 
 // Use  routes
 app.use('/api', router);
