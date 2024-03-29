@@ -26,8 +26,8 @@ const mongoURI ='mongodb+srv://indusunkari7:ySK8qo9uV5sRmizR@cluster0.vqcl7cx.mo
 
 const db = mongoose.connection;
 mongoose.connect('mongodb://127.0.0.1:27017/task', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true
 });
 
 // db.on('error', console.error.bind(console, 'MongoDB connection error',{ }));
