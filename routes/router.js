@@ -69,35 +69,16 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// Route for user signup
-router.post('/signup', async (req, res) => {
+
+router.get('/success', async (req, res) => {
     try {
-        const user = await User.findOne({ email: req.body.email });
-
-        // Check if user already exists
-        if (user) {
-            return res.status(400).json({ success: false, message: 'Email already exists' });
-        }
-
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
-
-        // Create a new user instance
-        const newUser = new User({
-            name: req.body.name,
-            email: req.body.email,
-            mobile: req.body.mobile,
-            password: hashedPassword
-        });
-
-        // Save the new user to the database
-        await newUser.save();
-
-        res.json({ success: true, message: 'Signup successful' });
-    } catch (error) {
-        console.error('Signup failed:', error);
-        res.status(500).json({ success: false, message: 'Server error' });
+        const users = await User.find({});
+        res.status(200).json({ success: true, data: users, message: 'Authentication login successfully' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, error: err.message });
     }
 });
+
 
 module.exports = router;
