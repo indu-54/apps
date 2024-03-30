@@ -108,7 +108,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', router);
 // Add this line before connecting to MongoDB
 mongoose.set('strictQuery', false); // Or set it to true if you want to suppress the warning
-const uri = 'mongodb+srv://indusunkari7:ux3Mwj11kLiy5Yx6@cluster0.ed5opyr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const uri = 'mongodb+srv://indusunkari7:kPAwtfTy52AVeyZI@cluster0.dkpf6er.mongodb.net/';
 
 mongoose.connect(uri, {
   // useNewUrlParser: true,
