@@ -107,7 +107,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', router);
 
-const uri = 'mongodb+srv://indusunkari7:*knLwHmpC*&2P9-@cluster0.3p9btie.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const uri = 'mongodb+srv://indusunkari7:mEBAdkxGBmxfxJKv@cluster0.3p9btie.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose.connect(uri, {
   // useNewUrlParser: true,
