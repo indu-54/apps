@@ -1,23 +1,14 @@
 const jwt = require('jsonwebtoken');
 
-const checkAuth = (req, res, next) => {
-    // Get the token from the request headers
-    const token = req.headers.authorization;
-
-    // Check if token is present
-    if (!token) {
-        return res.status(401).json({ success: false, message: 'Access denied. No token provided' });
-    }
-
+module.exports = (req, res, next) => {
     try {
-        // Verify the token
-        const decodedToken = jwt.verify(token, 'webBatch');
-        req.userData = { userId: decodedToken.userId };
+        const token = req.headers.authorization.split(' ')[1];
+        const decode = jwt.verify(token, "webBatch");
+        req.userData = decode;
         next();
     } catch (error) {
-        console.error('Authentication failed:', error);
-        return res.status(401).json({ success: false, message: 'Invalid token' });
+        console.error(error);
+        res.status(401).json({ success: false, message: "Auth failed: Invalid token" });
     }
 };
 
-module.exports = checkAuth;
