@@ -18,7 +18,7 @@ app.use('/api', router);
 
 
 // const uri = 'mongodb+srv://indusunkari7:wa4A2a6fyyJXhb5E@cluster0.qxxy8tt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-const uri ='mongodb+srv://indusunkari7:J5uQWsTsBuLKQRVL@cluster0.rinj5sl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const uri ='mongodb+srv://indusunkari7:J5uQWsTsBuLKQRVL@cluster0.rinj5sl.mongodb.net/';
  
 mongoose.connect(uri, {  
   
