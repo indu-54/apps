@@ -74,53 +74,56 @@
 // });
 
 
+
+
+// // MongoDB Atlas URI
+// // const mongoURI  = 'mongodb+srv://indusunkari7:ySK8qo9uV5sRmizR@cluster0.vqcl7cx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+// const mongoURI = 'mongodb+srv://indusunkari7:X7rVMN0XxisLDP1n@cluster0.qdohzkw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+// // Connect to MongoDB Atlas with SSL options
+// mongoose.connect(mongoURI, {
+//   // useNewUrlParser: true,
+//   // useUnifiedTopology: true,
+//   // ssl: true, // Enable SSL
+//   // sslValidate: true, // Validate SSL certificates
+//   // sslCA: YOUR_CA_CERT, // Provide CA certificate if necessary
+// })
+// .then(() => {
+//   console.log('Connected to MongoDB Atlas');
+// })
+// .catch((error) => {
+//   console.error('MongoDB Atlas connection error:', error);
+// });
+
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const router = require('./routes/router');
-
 const app = express();
-const PORT = process.env.PORT || 4500;
+const PORT = process.env.PORT || 4000;
 
-// Middleware
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// CORS setup
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', true);
-  res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  next();
-});
-
-// MongoDB Atlas URI
-// const mongoURI  = 'mongodb+srv://indusunkari7:ySK8qo9uV5sRmizR@cluster0.vqcl7cx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-const mongoURI = 'mongodb+srv://indusunkari7:X7rVMN0XxisLDP1n@cluster0.qdohzkw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-// Connect to MongoDB Atlas with SSL options
-mongoose.connect(mongoURI, {
-  // useNewUrlParser: true,
-  // useUnifiedTopology: true,
-  // ssl: true, // Enable SSL
-  // sslValidate: true, // Validate SSL certificates
-  // sslCA: YOUR_CA_CERT, // Provide CA certificate if necessary
-})
-.then(() => {
-  console.log('Connected to MongoDB Atlas');
-})
-.catch((error) => {
-  console.error('MongoDB Atlas connection error:', error);
-});
-
-// Routes
 app.use('/api', router);
 
-// Default route
-app.get('/', (req, res) => {
-  res.send('Hello from Render!');
+const uri = 'mongodb+srv://indusunkari7:mEBAdkxGBmxfxJKv@cluster0.3p9btie.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+
+mongoose.connect(uri, {
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true,
+  // useCreateIndex: true,
+  // useFindAndModify: false
 });
 
-// Start the server
+const db = mongoose.connection;
+db.on('error', (error) => {
+  console.error('Error connecting to MongoDB Atlas with Mongoose:', error);
+});
+db.once('open', () => {
+  console.log('Connected to MongoDB Atlas with Mongoose');
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
